@@ -1,28 +1,25 @@
+number_types = (int, float, complex)
+
+
 class Calculator:
 
-    def __init__(self):
-        self.number_types = (int, float, complex)
+    @staticmethod
+    def validate_args(x, y):
+        if not isinstance(x, number_types) and not isinstance(y, number_types):
+            raise ValueError
 
     def add(self, x, y):
-        if isinstance(x, self.number_types) and isinstance(y, self.number_types):
-            return x + y
-        else:
-            raise ValueError
+        self.validate_args(x, y)
+        return x + y
 
     def multiply(self, x, y):
-        if isinstance(x, self.number_types) and isinstance(y, self.number_types):
-            return x*y
-        else:
-            raise ValueError
+        self.validate_args(x, y)
+        return x*y
 
     def sub(self, x, y):
-        if isinstance(x, self.number_types) and isinstance(y, self.number_types):
-            return x - y
-        else:
-            raise ValueError
+        self.validate_args(x, y)
+        return x-y
 
     def div(self, x, y):
-        if isinstance(x, self.number_types) and isinstance(y, self.number_types):
-            return x/y
-        else:
-            raise ValueError
+        self.validate_args(x, y)
+        return x/y
